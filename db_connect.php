@@ -4,10 +4,6 @@ $host="cray.cc.gettysburg.edu"; // vars start w $
 $dbase="f21_1"; //database name
 $user="attale01";
 $pass="attale01";
-$user="farrro01";
-$pass="farrro01";
-$user="tranhi01";
-$pass="tranhi01";
 
 try {
 	

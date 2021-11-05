@@ -1,0 +1,42 @@
+.header {
+    background-color: navy;
+    color: goldenrod;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+body {
+    margin: 0px;
+}
+
+.blueRect {
+    margin: 5px;
+    padding: 5px;
+    background-color: skyblue;
+    width: 100%;
+    text-align: center;
+}
+
+.col {
+    width: 38%;
+}
+
+.stdMain {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+form {
+    width: 100%;
+    padding: 10px;
+}
+
+.signIn,  .helpSignIn{
+    padding-top: 30%;
+    height: 300px;
+}

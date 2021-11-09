@@ -1,20 +1,31 @@
-<?php
-?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>Student Dashboard</title>
         <link rel="stylesheet" href="style.css">
+        <?php 
+            include_once('db_connect.php'); 
+            include_once('bootstrap.php'); 
+            include_once('studentDashUtil.php');
+        ?>  
     </head>
     <body>
+    <?php
+        // Get current user data
+        $user   = $_GET['uid'];
+        if($user == null) {
+            $user = 123;
+        }
+    ?>
     <div class="content">
         <div class="header">
             <h2> PLA Dashboard </h2>
             <a><h2> Sign Out </h2></a> 
         </div>
         <div class="stdMain">
+            <div class="col-md-12 column welcomeCol">
+                <h2> <?php print welcome($user);?> </h2>
+            </div>
             <div class="col">
                 <div class="signIn blueRect">
                     <form>
@@ -31,10 +42,7 @@
                 <div class="blueRect"> 
                     <h2>Your Recorded PLA Sessions </h2>
                     <br>
-                    <p>9/1/21 7:00pm-9:00pm</p>
-                    <p>9/1/21 7:00pm-9:00pm</p>
-                    <p>9/1/21 7:00pm-9:00pm</p>
-                    <p>9/1/21 7:00pm-9:00pm</p>
+                    <?php getPastShifts($user, $db); ?>
                 </div>
             </div>
             
@@ -61,11 +69,7 @@
                 <div class="blueRect">
                     <h2>Help Recorded </h2>
                     <br>
-                    <p>Robin - For Loops</p>
-                    <p>Robin - For Loops</p>
-                    <p>Robin - For Loops</p>
-                    <p>Robin - For Loops</p>
-
+                    <?php getAskedQuestions($user, $db); ?>
                 </div>
 
             </div>

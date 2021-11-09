@@ -22,10 +22,10 @@
             <h2> PLA Dashboard </h2>
             <a><h2> Sign Out </h2></a> 
         </div>
+        <div class="col-md-12 column welcomeCol">
+            <h2> <?php print welcome($user, $db);?> </h2>
+        </div>
         <div class="stdMain">
-            <div class="col-md-12 column welcomeCol">
-                <h2> <?php print welcome($user);?> </h2>
-            </div>
             <div class="col">
                 <div class="signIn blueRect">
                     <form>
@@ -41,8 +41,8 @@
                 </div>
                 <div class="blueRect"> 
                     <h2>Your Recorded PLA Sessions </h2>
-                    <br>
-                    <?php getPastShifts($user, $db); ?>
+                    <br> 
+                    <center><?php getPastShifts($user, $db); ?></center>
                 </div>
             </div>
             
@@ -69,7 +69,7 @@
                 <div class="blueRect">
                     <h2>Help Recorded </h2>
                     <br>
-                    <?php getAskedQuestions($user, $db); ?>
+                    <center><?php getAskedQuestions($user, $db); ?></center>
                 </div>
 
             </div>

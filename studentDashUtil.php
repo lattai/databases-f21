@@ -16,8 +16,13 @@ function getPastShifts($uid, $db){
     print ("<div class=\"table\">");
 	print ("<table border=\"0\" cellspacing=\"0\" cellpadding=\"3\" >");
 
-    $str = "SELECT date, time FROM shift WHERE taid=$user LIMIT 15;";
+    $str = "SELECT date, time FROM shift WHERE taid=$uid ORDER BY date LIMIT 15 ;";
     $res    = $db->query($str);
+
+	if ($res == false) {
+		print $str;
+		print_r($db->errorInfo());
+	}
     if ($res != FALSE) {
 		$nRows = $res->rowCount(); 
 		$nCols = $res->columnCount();
@@ -41,9 +46,18 @@ function getPastShifts($uid, $db){
 
 
 function getAskedQuestions($uid, $db){
-    $str = "SELECT sid, topic, question, date FROM hasQuestion WHERE taid=$user LIMIT 15;";
+
+    print ("<div class=\"table\">");
+	print ("<table border=\"0\" cellspacing=\"0\" cellpadding=\"3\" >");
+
+    $str = "SELECT sid, topic, question, date FROM hasQuestion WHERE taid=$uid ORDER BY date LIMIT 15;";
 
     $res    = $db->query($str);
+
+	if ($res == false) {
+		print $str;
+		print_r($db->errorInfo());
+	}
     if ($res != FALSE) {
 		$nRows = $res->rowCount(); 
 		$nCols = $res->columnCount();
@@ -57,12 +71,17 @@ function getAskedQuestions($uid, $db){
 			$question   = $row['question'];
 
 
-			$strNames   = "SELECT fname, lname FROM student WHERE id=$sid;";
+			$strNames   = "SELECT fname, lname FROM student WHERE sid=$sid;";
             $resName    = $db->query($strNames);
 			$rowName    = $resName->fetch();
-			$name       = $rowName['fname']. " ". $rowName['lname'];
+			$name       = $rowName['fname']." ".$rowName['lname'];
+			if ($resName == false) {
+				print $strNames;
+				print_r($db->errorInfo());
+			}
 
 
+				// <td>$name</td>
 			$tRow = "<tr>
 				<td>$name</td>
 				<td>$date</td>

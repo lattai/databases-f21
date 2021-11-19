@@ -96,4 +96,33 @@ function getAskedQuestions($uid, $db){
     print ("</div>");
 }
 
+function getSignInForm($uid, $db) {
+	print  "<form name=\"fmSignIn\" method=\"POST\" action=\"dashboard.php?op=submitSignIn&user=$uid&date=$date&start=$start&end=$end\">
+			<h2>PLA Hours Sign In</h2>
+			<label for=\"start\">Start:</label>
+			<input type=\"text\" id=\"start\" name=\"start\"> <br>
+			<label for=\"end\">End:</label>
+			<input type=\"text\" id=\"end\" name=\"end\"> <br>
+			<label for=\"date\">Date:</label>
+			<input type=\"text\" id=\"date\" name=\"date\"> <br>
+			<input type=\"submit\" value=\"Submit\">
+			</form>";
+}
+
+function submitSignIn($uid, $db) {
+	$start	= $_POST['start'];
+	$end 	= $_POST['end'];
+	$date 	= $_POST['date'];
+
+	$str = "INSERT INTO shift(taid, date, start, end)"
+	."VALUE($uid, $location, $start, $end;";
+
+	$res = $db->query($str);
+	if($res == FALSE) {
+		print "<p>Error adding a new message to the table </p>\n";
+		print_r($db->errorInfo());
+	}
+	print "Shift submitted";
+} 
+
 ?>

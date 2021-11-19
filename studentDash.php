@@ -28,16 +28,11 @@
         <div class="stdMain">
             <div class="col">
                 <div class="signIn blueRect">
-                    <form>
-                        <h2>PLA Hours Sign In</h2>
-                        <label for="start">Start:</label>
-                        <input type="text" id="start" name="start"> <br>
-                        <label for="end">End:</label>
-                        <input type="text" id="end" name="end"> <br>
-                        <label for="date">Date:</label>
-                        <input type="text" id="date" name="date"> <br>
-                        <input type="submit" value="Submit">
-                    </form>
+                     <?php getSignInForm($user, $db); 
+                        if ($op == 'sendMsg') {
+                            submitSignIn($db, $user);
+                        }
+                    ?>?>
                 </div>
                 <div class="blueRect"> 
                     <h2>Your Recorded PLA Sessions </h2>

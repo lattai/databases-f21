@@ -1,3 +1,134 @@
+  * { margin: 0px; padding: 0px; }
+  body {
+      font-size: 120%;
+      background: #F8F8FF;
+  }
+  .registerHeader {
+      width: 40%;
+      margin: 50px auto 0px;
+      color: white;
+      background: #5F9EA0;
+      text-align: center;
+      border: 1px solid #B0C4DE;
+      border-bottom: none;
+      border-radius: 10px 10px 0px 0px;
+      padding: 20px;
+  }
+  form, .content {
+      width: 40%;
+      margin: 0px auto;
+      padding: 20px;
+      border: 1px solid #B0C4DE;
+      background: white;
+      border-radius: 0px 0px 10px 10px;
+  }
+  .input-group {
+      margin: 10px 0px 10px 0px;
+  }
+  .input-group label {
+      display: block;
+      text-align: left;
+      margin: 3px;
+  }
+  .input-group input {
+      height: 30px;
+      width: 93%;
+      padding: 5px 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid gray;
+  }
+  #user_type {
+      height: 40px;
+      width: 98%;
+      padding: 5px 10px;
+      background: white;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid gray;
+  }
+  .btn {
+      padding: 10px;
+      font-size: 15px;
+      color: white;
+      background: #5F9EA0;
+      border: none;
+      border-radius: 5px;
+  }
+  .error {
+      width: 92%; 
+      margin: 0px auto; 
+      padding: 10px; 
+      border: 1px solid #a94442; 
+      color: #a94442; 
+      background: #f2dede; 
+      border-radius: 5px; 
+      text-align: left;
+  }
+  .success {
+      color: #3c763d; 
+      background: #dff0d8; 
+      border: 1px solid #3c763d;
+      margin-bottom: 20px;
+  }
+
+  .header {
+    background-color: navy;
+    color: goldenrod;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+body {
+    margin: 0px;
+    position: relative;
+    min-height: 100vh;
+}
+
+.blueRect {
+    margin: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: skyblue;
+    width: 100%;
+    text-align: center;
+}
+
+.col {
+    width: 38%;
+}
+
+.stdMain {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+form {
+    width: 100%;
+    padding-top: 50px;
+    height: 300px;
+}
+
+.content {
+    padding-left:12%;
+    padding-right:12%;
+    padding-top: 20px; 
+    padding-bottom: 2.5rem;  
+     min-height: 100vh;
+}
+
+
+
+.footer {
+    text-align: center;
+    padding: 3px;
+    background-color: navy;
+    height: 30px;
+=======
 * { margin: 0px; padding: 0px; }
 body {
 	font-size: 120%;

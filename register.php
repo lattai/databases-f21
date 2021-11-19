@@ -7,11 +7,11 @@
 	<title>Registration system PHP and MySQL</title>
    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="header">
+<body class="registerBody">
+<div class="registerHeader">
 	<h2>Register</h2>
 </div>
-<form method="post" action="register.php">
+<form class="registerForm" method="post" action="register.php">
 
 	<div class="input-group">
 		<label>Username</label>

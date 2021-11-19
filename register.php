@@ -8,7 +8,7 @@
    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="header">
+<div class="registerHeader">
 	<h2>Register</h2>
 </div>
 <form method="post" action="register.php">

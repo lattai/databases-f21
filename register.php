@@ -6,7 +6,7 @@
 <head>
 	<title>Registration system PHP and MySQL</title>
    <link rel="stylesheet" href="style.css">
-</head>
+  </head>
 <body class="registerBody">
 <div class="registerHeader">
 	<h2>Register</h2>

@@ -1,13 +1,18 @@
+
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Login</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
-	</head>
-	<body>
- 
-   
-   <div class="navbar">
+<head>
+<title>Landing Page </title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type='text/css' rel='stylesheet' href="LPageStyle.css" />
+
+</head>
+
+<body>
+
+
+<div class="navbar">
   <a href="#home" onclick="openTab('Home', this, 'orange')" id="defaultOpen">HOME</a>
   <div class="dropdown">
     <button class="dropbtn">MENU
@@ -17,13 +22,39 @@
       <a href="#news" onclick="openTab('Signup', this)">Signup</a>
       <a href="#news" onclick="openTab('Login', this)">Login</a>
     </div>
-    </div>
-    </div>
-    
-    /* Sign up section */
-    <div id="Signup" class="tabcontent">
+  </div>
+</div>
+
+
+<img src='glatfelter2.jpg' /> 
+
+
+<div id="Home" class="tabcontent">
+  <h1><center>Event Brighter</center></h1>
+  <h4>Featured Events:</h4>
+
+  <div style="overflow-x:auto;">
+    <table>
+      <tr>
+        <th>Artist</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Link</th>
+      </tr>
+      <tr>
+        <td>Travis Porter</td>
+        <td>Gettysburg College</td>
+        <td>4/26/18</td>
+        <td><button class="button" onclick="openTab('Events', this, 'blue')" style="vertical-align:middle" ><span>Purchase Tickets</span></button></td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+  
+<div id="Signup" class="tabcontent">
   <p><h1>Signup:</h1></p>
-  <FORM name ="fmSignup" method="POST" action="signup.php">
+  <FORM name ="fmSignup" method="POST" action="signup_f.php">
   <table id="t1">
 <TR>
 <TD>UserID</TD>
@@ -66,11 +97,9 @@
 </FORM>
 </div>
 
-// Login section
-
 <div id="Login" class="tabcontent">
   <p><h1>Login:</h1></p>
-  <FORM name ='fmLogin' action='login.php' method='POST'>
+  <FORM name ='fmLogin' action='login_f.php' method='POST'>
   <INPUT type='text' name='login' size='30' placeholder='Your Username' /> <BR /><BR />
   <INPUT type='password' name='password' size='30' placeholder='Your Password' /> <BR /><BR />
 
@@ -81,6 +110,6 @@
 
 
 
-   
-	</body>
+</body>
 </html>
+

@@ -106,7 +106,7 @@ else {
 	
 			print $tRow;
 
-			$row = $res->fetch();
+			$row = $res2->fetch();
 		}
 }
 ?>

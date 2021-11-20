@@ -1,38 +1,34 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <HTML>
+
 <HEAD>
-<TITLE> Login </TITLE>
+<TITLE>Login</TITLE>
 <link rel="stylesheet" href="style.css">
-
-<?php 
-include('bootstrap.php');
-include_once('db_connect.php');
-session_start();
-$uid = 05; //for testing purposes only
-?>
-
-<STYLE>	
-.title{
-  text-align:"center"
-}
-</STYLE>
 </HEAD>
-<BODY>
-<DIV class="header" id="divMain" style="text-align=:right">
-	<DIV><H3> Sign Up </H3></DIV>
-</DIV>
-<DIV class = "title">
-	<H1>Timesheet System</H1>
-</DIV>
-<DIV class="blueRect">
-	<form>
-		<label for="username">Username:</label>
-        	<input type="text" id="username" name="username"> <br>
-        	<label for="password">Password:</label>
-        	<input type="text" id="password" name="password"> <br>
-        	<input type="submit" value="Login">
-        </form>
-</DIV>
 
+<BODY class="registerBody">
+	<DIV class="registerHeader">
+		<H2>Login</H2>
+	</DIV>
+	<FORM class="registerForm" method="post" action="login.php">
+
+	<DIV class="input-group">
+		<label>Username</label>
+		<input type="text" name="username" value="">
+	</DIV>
+	
+	<DIV class="input-group">
+		<label>Password</label>
+		<input type="password" name="password">
+	</DIV>
+	
+	<DIV class="input-group">
+		<button type="submit" class="btn" name="login_btn">Login</button>
+	</DIV>
+	
+	<p>
+		Need an Account? <a href="register.php">Sign Up</a>
+	</p>
+</FORM>
 </BODY>
 </HTML>

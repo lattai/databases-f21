@@ -1,17 +1,12 @@
 
-<?php include('functions.php') ?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Registration system PHP and MySQL</title>
-   <link rel="stylesheet" href="style.css">
-  </head>
-<body class="registerBody">
-<div class="registerHeader">
-	<h2>Register</h2>
-</div>
-<form class="registerForm" method="post" action="register.php">
+   <link rel="stylesheet" href="registerStyle.css">
+</head>
+<body>
+<form method="post" action="register.php">
 
 	<div class="input-group">
 		<label>Username</label>

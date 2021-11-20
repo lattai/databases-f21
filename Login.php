@@ -10,7 +10,7 @@
 	<DIV class="registerHeader">
 		<H2>Login</H2>
 	</DIV>
-	<FORM class="registerForm" method="post" action="login.php">
+	<FORM class="registerForm" method="post" action="Login.php">
 
 	<DIV class="input-group">
 		<label>Username</label>

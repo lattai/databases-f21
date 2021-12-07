@@ -16,6 +16,9 @@
         if($user == null) {
             $user = 123;
         }
+        submitSignIn($user, $db);
+        submitQuestion($user, $db);
+
     ?>
     <div class="content">
         <div class="header">
@@ -28,11 +31,9 @@
         <div class="stdMain">
             <div class="col">
                 <div class="signIn blueRect">
-                     <?php getSignInForm($user, $db); 
-                        if ($op == 'sendMsg') {
-                            submitSignIn($db, $user);
-                        }
-                    ?>?>
+                    <?php 
+                        getSignInForm($user, $db); 
+                    ?>
                 </div>
                 <div class="blueRect"> 
                     <h2>Your Recorded PLA Sessions </h2>
@@ -43,28 +44,17 @@
             
             <div class="col">
                 <div class="helpSignIn blueRect"> 
-                    <form>
-                        <h2>Help Sign In</h2>
-
-                        <label for="students">Student:</label>
-                        <select name="students" id="students">
-                            <option value="stu1">1</option>
-                            <option value="stu2">2</option>
-                            <option value="stu3">3</option>
-                            <option value="stu4">4</option>
-                        </select>
-                        <br><br>
-                        <label for="topic">Topic:</label>
-                        <input type="text" id="topic" name="topic"> <br>
-                        <label for="question">Question:</label>
-                        <input type="text" id="question" name="question"> <br>
-                        <input type="submit" value="Submit">
-                    </form>
+                    
+                <center><?php getQuestionForm($user, $db); ?></center>
                 </div>
                 <div class="blueRect">
                     <h2>Help Recorded </h2>
                     <br>
-                    <center><?php getAskedQuestions($user, $db); ?></center>
+                    <center>
+                    <?php 
+                        getAskedQuestions($user, $db);
+                    ?>
+                    </center>
                 </div>
 
             </div>

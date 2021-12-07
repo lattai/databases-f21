@@ -16,7 +16,7 @@ function getPastShifts($uid, $db){
     print ("<div class=\"table\">");
 	print ("<table border=\"0\" cellspacing=\"0\" cellpadding=\"3\" >");
 
-    $str = "SELECT date, time FROM shift WHERE taid=$uid ORDER BY date LIMIT 15 ;";
+    $str = "SELECT date, start, end FROM shift WHERE taid=$uid ORDER BY date DESC LIMIT 15 ;";
     $res    = $db->query($str);
 
 	if ($res == false) {
@@ -31,10 +31,11 @@ function getPastShifts($uid, $db){
 		$row = $res->fetch(0); //first row 
 		while ($row != FALSE) {
 			$date = $row['date'];
-			$time = $row['time'];
+			$start = $row['start'];
+			$end = $row['end'];
 			$tRow = "<tr>
 				<td>$date</td>
-				<td>$time</td>
+				<td>$start-$end</td>
 				</tr>\n";
 			print $tRow;
 			$row = $res->fetch();
@@ -60,7 +61,6 @@ function getAskedQuestions($uid, $db){
 	}
     if ($res != FALSE) {
 		$nRows = $res->rowCount(); 
-		$nCols = $res->columnCount();
 	}
     if ($nRows > 0) {
 		$row = $res->fetch(0); //first row 
@@ -97,7 +97,8 @@ function getAskedQuestions($uid, $db){
 }
 
 function getSignInForm($uid, $db) {
-	print  "<form name=\"fmSignIn\" method=\"POST\" action=\"dashboard.php?op=submitSignIn&user=$uid&date=$date&start=$start&end=$end\">
+	print  "<form name=\"fmSignIn\" method=\"POST\" action=\"studentDash.php?
+			user=$uid&start=$start&end=$end&date=$date\">
 			<h2>PLA Hours Sign In</h2>
 			<label for=\"start\">Start:</label>
 			<input type=\"text\" id=\"start\" name=\"start\"> <br>
@@ -105,7 +106,7 @@ function getSignInForm($uid, $db) {
 			<input type=\"text\" id=\"end\" name=\"end\"> <br>
 			<label for=\"date\">Date:</label>
 			<input type=\"text\" id=\"date\" name=\"date\"> <br>
-			<input type=\"submit\" value=\"Submit\">
+			<input type=\"submit\" value=\"Submit\"  onClick=\"location.reload();\">
 			</form>";
 }
 
@@ -114,15 +115,123 @@ function submitSignIn($uid, $db) {
 	$end 	= $_POST['end'];
 	$date 	= $_POST['date'];
 
-	$str = "INSERT INTO shift(taid, date, start, end)"
-	."VALUE($uid, $location, $start, $end;";
+	// check for duplicates before inserting.
+	if ($start != null && $end != null && $date != null) {
+		$str = "SELECT * FROM shift where taid=$uid AND date = \"$date\" AND start=\"$start\" AND end=\"$end\";";
+		$res = $db->query($str);
+		if ($res != FALSE) {
+			$nRows = $res->rowCount(); 
 
-	$res = $db->query($str);
-	if($res == FALSE) {
-		print "<p>Error adding a new message to the table </p>\n";
-		print_r($db->errorInfo());
+			if ($nRows == 0) {
+				$str = "INSERT INTO shift(taid, date, start, end) VALUE($uid, \"$date\", \"$start\", \"$end\");";
+				$res = $db->query($str);
+				if($res == FALSE) {
+					print "<p>Error adding a new shift to the table </p>\n";
+					print_r($db->errorInfo());
+				}
+			}
+		}
+		else {
+			print "<p>Error adding a new shift to the table </p>\n";
+				print_r($db->errorInfo());
+		}
 	}
-	print "Shift submitted";
 } 
 
+
+
+function getQuestionForm($uid, $db) {
+
+	// Get course id PLA helps
+	$str = "SELECT cid FROM student WHERE sid=$uid";
+    $res    = $db->query($str);
+    $row    = $res->fetch();
+    $plaCourseID   = $row['cid'];
+	
+	// Get students  in the course the PLA helps
+	$str = "SELECT fname, lname FROM student JOIN enrollsIn ON student.sid = enrollsIn.sid WHERE enrollsIn.cid = $plaCourseID; ";
+    $res    = $db->query($str);
+	
+	if ($res == false) {
+		print $str;
+		print_r($db->errorInfo());
+	}
+    else {
+		$nRows = $res->rowCount(); 
+	}
+    if ($nRows > 0) {
+		$row = $res->fetch(0); //first row 
+		while ($row != FALSE) {
+			$fname        = $row['sid'];
+			$lname       = $row['date'];
+
+			$strNames   = "SELECT fname, lname FROM student WHERE sid=$sid;";
+            $resName    = $db->query($strNames);
+			$rowName    = $resName->fetch();
+			$name       = $rowName['fname']." ".$rowName['lname'];
+			if ($resName == false) {
+				print $strNames;
+				print_r($db->errorInfo());
+			}
+
+
+				// <td>$name</td>
+			$tRow = "<tr>
+				<td>$name</td>
+				<td>$date</td>
+				<td>$topic</td>
+				<td>$question</td>
+				</tr>\n";
+			print $tRow;
+			$row = $res->fetch();
+		}
+	}
+
+	print  "<form name=\"fmQuestions\" method=\"POST\" action=\"studentDash.php?
+	user=$uid&start=$start&end=$end&date=$date\">
+			<h2>Help Sign In</h2>
+
+			<label for=\"students\">Student:</label>
+			<select name=\"students\" id=\"students\">
+				<option value=\"stu1\">1</option>
+				<option value=\"stu2\">2</option>
+				<option value=\"stu3\">3</option>
+				<option value=\"stu4\">4</option>
+			</select>
+			<br><br>
+			<label for=\"topic\">Topic:</label>
+			<input type=\"text\" id=\"topic\" name=\"topic\"> <br>
+			<label for=\"question\">Question:</label>
+			<input type=\"text\" id=\"question\" name=\"question\"> <br>
+			<input type=\"submit\" value=\"Submit\" onClick=\"location.reload();\">
+		</form>";
+}
+
+function submitQuestion($uid, $db) {
+	$sid	= $_POST['students'];
+	$topic 	= $_POST['topic'];
+	$question 	= $_POST['question'];
+
+	// check for duplicates before inserting.
+	if ($sid != null && $topic != null && $question != null) {
+		$str = "SELECT * FROM hasQuestion where taid=$uid AND sid=$sid AND topic = \"$topic\" AND question=\"$question\";";
+		$res = $db->query($str);
+		if ($res != FALSE) {
+			$nRows = $res->rowCount(); 
+
+			if ($nRows == 0) {
+				$str = "INSERT INTO hasQuestion(taid, sid, topic, question, date) VALUE($uid, $sid, \"$topic\", \"$question\", \"$date\");";
+				$res = $db->query($str);
+				if($res == FALSE) {
+					print "<p>Error adding a new shift to the table </p>\n";
+					print_r($db->errorInfo());
+				}
+			}
+		}
+		else {
+			print "<p>Error adding a new shift to the table </p>\n";
+				print_r($db->errorInfo());
+		}
+	}
+} 
 ?>

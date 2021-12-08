@@ -1,4 +1,6 @@
-  .registerBody{
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap');
+
+.registerBody{
       font-size: 120%;
       background: #F8F8FF;
   }
@@ -72,24 +74,30 @@
   }
 
   .header {
-    background-color: navy;
+    background-color: #00008B;
     color: goldenrod;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     padding-left: 50px;
     padding-right: 50px;
-}
+    font-family: 'Lora', serif;
+    font-weight : 600;
+    font-size: 25px;
+    }
 body {
     margin: 0px;
     position: relative;
     min-height: 100vh;
+    background-image: url('glatfelter3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .blueRect {
     margin: 5px;
     padding: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
     background-color: skyblue;
     width: 100%;
     text-align: center;
@@ -122,6 +130,42 @@ form {
 .footer {
     text-align: center;
     padding: 3px;
-    background-color: navy;
+    background-color: #00008B;
     height: 30px;
+}
+h3{
+    font-family: 'Lora', serif;
+    font-weight : 600;
+    font-size: 25px;
+}
+.boxes{
+	display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  padding: 50px;
+}
+.head {
+	width: 100%;
+	margin:  0px;
+	color: white;
+	background: #00008B;
+	text-align: center;
+	border: 1px solid #00008B;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+	
+	font-family: 'Lora', serif;
+	font-weight : 600;
+	font-size: 25px;
+	}
+.box{
+	width: 40%;
+	margin: 0px;
+	color: #00008B;
+	background: white;
+	text-align: center;
+
+	border-radius: 10px 10px 0px 0px;
 }

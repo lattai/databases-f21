@@ -13,7 +13,7 @@ function welcome($uid, $db) {
 
 
 function addPlaForm($uid, $db) {
-		$a  = "<h2>Add PLA</h2>
+		$a  = "
 		<form name=\"addPLAForm\" method=\"POST\" action=\"profSetup.php?op=addPLAForm&user=$uid\">
 		<label for=\"fname\">First Name:</label>
 		<input type=\"text\" id=\"fname\" name=\"fname\"> <br>
@@ -80,7 +80,7 @@ function submitPlaForm($uid, $db) {
 }
 
 function addClassForm($uid, $db) {
-		$a  = "<h2>Add Class</h2>
+		$a  = "
 		<form name=\"shiftForm\" method=\"POST\" action=\"profSetup.php?op=sendClassForm&user=$uid\">
 		<label for=\"cname\">Name:</label>
 		<input type=\"text\" id=\"cname\" name=\"cname\"> <br>
@@ -136,7 +136,7 @@ function submitClassForm($uid, $db) {
 
 
 function addRosterForm($uid, $db) {
-		$a  = "<h2>Add Roster</h2>
+		$a  = "
 		<form name=\"shiftForm\" method=\"POST\" action=\"profSetup.php?op=sendRosterForm&user=$uid\">
 		<label for=\"cid\">Course:</label>
 		<select id=\"cid\" name=\"cid\">";

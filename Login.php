@@ -11,6 +11,17 @@
 <link rel="stylesheet" href="LPageStyle.css">
 </HEAD>
 
+<style>
+body {
+  background-image: url('glatfelter3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px;
+  position: relative;
+  min-height: 100vh;
+}
+</style>
+
 <BODY class="registerBody">
 	<DIV class="header">
 		<H2>Login</H2>
@@ -32,10 +43,6 @@
 	<DIV class="input-group">
 	<button type="submit" class="btn" value="login"> Login</button>
 	</DIV>
-	
-	<!--DIV class="input-group">
-		<button type="submit" class="btn" value="login"> <A href="StudentDashboard.php?<?php print "user = $user"?>">Student Login </A></button>
-	</DIV-->
 	
 	<p>
 		Need an Account? <a href="register.php">Sign Up</a>

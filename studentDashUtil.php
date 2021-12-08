@@ -99,7 +99,6 @@ function getAskedQuestions($uid, $db){
 function getSignInForm($uid, $db) {
 	print  "<form name=\"fmSignIn\" method=\"POST\" action=\"studentDash.php?
 			user=$uid&start=$start&end=$end&date=$date\">
-			<h2>PLA Hours Sign In</h2>
 			<label for=\"start\">Start:</label>
 			<input type=\"text\" id=\"start\" name=\"start\"> <br>
 			<label for=\"end\">End:</label>
@@ -150,8 +149,6 @@ function getQuestionForm($uid, $db) {
 	
 	$a =   "<form name=\"fmQuestions\" method=\"POST\" action=\"studentDash.php?
 	user=$uid&start=$start&end=$end&date=$date\">
-			<h2>Help Sign In</h2>
-
 			<label for=\"students\">Student:</label>
 			<select name=\"students\" id=\"students\">";
 			//students

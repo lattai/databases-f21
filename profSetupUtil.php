@@ -4,7 +4,7 @@ include_once('db_connect.php');
 include_once('bootstrap.php');
 
 function welcome($uid, $db) {
-    $str = "SELECT fname FROM student WHERE sid=$uid";
+    $str = "SELECT fname FROM instructor WHERE iid=$uid";
     $res    = $db->query($str);
     $row    = $res->fetch();
     $name   = $row['fname'];

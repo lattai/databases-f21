@@ -17,6 +17,8 @@
             $user = 5;
         }
         submitPlaForm($user, $db);
+        submitClassForm($user, $db);
+        submitRosterForm($user, $db);
 
     ?>
     <div class="header">

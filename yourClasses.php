@@ -7,23 +7,80 @@
 include('bootstrap.php');
 include_once('db_connect.php');
 session_start();
-$uid = 23; //for testing purposes only
+$uid = $_SESSION['user'];
 ?>
 
 <STYLE>
 
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.menu a, .header h3{
+	color: goldenrod;
+	padding: 20px;
 }
+.head {
+	width: 100%;
+	margin:  0px;
+	color: #ebebff;
+	background: #00008B;
+	text-align: center;
+	border: 1px solid #00008B;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+	
+	font-family: 'Lora', serif;
+	font-weight : 600;
+	font-size: 25px;
+	}
+ .header {
+    background-color: #00008B;
+    color: goldenrod;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: 'Lora', serif;
+    font-weight : 600;
+    font-size: 25px;
+    }
+.box{
+	width: 40%;
+	margin: 0px;
+	color: #00008B;
+	background: #ebebff;
+	text-align: center;
+
+	border-radius: 10px 10px 0px 0px;
+}
+.boxes{
+	display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  padding: 50px;
+}
+#divTables{
+	padding-top: 0px;
+}	
+table{
+	width: 100%;
+}
+body {
+    margin: 0px;
+    position: relative;
+    min-height: 100vh;
+    background-image: url('glatfelter3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 </STYLE>
 </HEAD>
 <BODY>
 
-<DIV class="header" id="divMain" style="border: 1px;">
+<DIV class="header" id="divMain">
 	<Div><H3> Your Classes </H3></DIV>
-	<DIV><H3> Setup  Dashboard  Logout</H3></DIV>
+	<DIV class="menu"><H3><A href="profSetup.php" style="color: goldenrod;"> Setup</A> <A href="ProfessorDashboard.php" style="color: goldenrod;"> Dashboard </A><A href="LandingPage.php" style="color: goldenrod;"> Logout</A></H3></DIV>
 
 </DIV>
 <?php
@@ -39,7 +96,10 @@ else {
 	print_r($db->errorInfo());
 }
 ?>
-<DIV class="flex-container" id="divTables" style= "padding: 10px;">
+<DIV class="boxes">
+<div class = "box">
+<div class = "head"> Your Classes </div>
+<DIV class="flex-container" id="divTables">
 	<TABLE border="1" cellspacing="0" cellpadding="10">
 	<TR>
 	<TH>Name of Class</TH>
@@ -65,7 +125,13 @@ else {
 }
 ?>
 </TABLE>
+</div>
+</div>
 
+
+<DIV class="box">
+<DIV class="head"> Your Students </DIV>
+<DIV class="flex-container" id="divTables">
 <?php
 $str2 = "SELECT * FROM enrollsIn JOIN student ON enrollsIn.sid = student.sid JOIN class on class.cid = enrollsIn.cid
 WHERE enrollsIn.cid IN (SELECT class.cid FROM class WHERE iid = $uid);";
@@ -107,6 +173,8 @@ else {
 }
 ?>
 </TABLE>
+</DIV>
+</DIV>
 </DIV>
 </BODY>
 </HTML>

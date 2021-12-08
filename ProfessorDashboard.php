@@ -17,10 +17,11 @@ $uid = $_SESSION['user'];
 ?>
 
 <STYLE>
+
 .head {
 	width: 100%;
 	margin:  0px;
-	color: white;
+	color: #ebebff;
 	background: #00008B;
 	text-align: center;
 	border: 1px solid #00008B;
@@ -48,7 +49,7 @@ $uid = $_SESSION['user'];
 	width: 40%;
 	margin: 0px;
 	color: #00008B;
-	background: white;
+	background: #ebebff;
 	text-align: center;
 
 	border-radius: 10px 10px 0px 0px;
@@ -66,14 +67,18 @@ $uid = $_SESSION['user'];
 table{
 	width: 100%;
 }
-body{
- background-image: url('glatfelter3.jpg');
-  	background-repeat: no-repeat;
-  	background-size: cover;
-}
+
 .menu a, .header h3{
 	color: goldenrod;
 	padding: 20px;
+}
+body {
+    margin: 0px;
+    position: relative;
+    min-height: 100vh;
+    background-image: url('glatfelter3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 </STYLE>
@@ -187,3 +192,4 @@ else {
 </DIV>
 </BODY>
 </HTML>
+

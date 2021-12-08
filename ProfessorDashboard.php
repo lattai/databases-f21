@@ -3,27 +3,86 @@
 <HEAD>
 <TITLE>Professor Dashboard</TITLE>
 <link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap" rel="stylesheet"> 
+
+
 <?php 
 include('bootstrap.php');
 include_once('db_connect.php');
 session_start();
-$uid = 05; //for testing purposes only
+$uid = $_SESSION['user'];
 ?>
 
 <STYLE>
+.head {
+	width: 100%;
+	margin:  0px;
+	color: white;
+	background: #00008B;
+	text-align: center;
+	border: 1px solid #00008B;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+	
+	font-family: 'Lora', serif;
+	font-weight : 600;
+	font-size: 25px;
+	}
+ .header {
+    background-color: #00008B;
+    color: goldenrod;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: 'Lora', serif;
+    font-weight : 600;
+    font-size: 25px;
+    }
+.box{
+	width: 40%;
+	margin: 0px;
+	color: #00008B;
+	background: white;
+	text-align: center;
 
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+	border-radius: 10px 10px 0px 0px;
 }
+.boxes{
+	display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  padding: 50px;
+}
+#divTables{
+	padding-top: 0px;
+}	
+table{
+	width: 100%;
+}
+body{
+ background-image: url('glatfelter3.jpg');
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+.menu a, .header h3{
+	color: goldenrod;
+	padding: 20px;
+}
+
 </STYLE>
 </HEAD>
 <BODY>
 
-<DIV class="header" id="divMain" style="border: 1px;">
+<DIV class="header" id="divMain">
 	<Div><H3> Professor Dashboard </H3></DIV>
-	<DIV><H3> Setup  Your Classes  Logout</H3></DIV>
+	<DIV class = "menu"><H3><A href="profSetup.php" style="color: goldenrod;"> Setup <A href="yourClasses.php" style="color: goldenrod;">Your Classes </a> <A href="LandingPage.php" style="color: goldenrod;">Logout</a></H3></DIV>
 
 </DIV>
 <?php
@@ -39,7 +98,11 @@ else {
 	print_r($db->errorInfo());
 }
 ?>
-<DIV class="flex-container" id="divTables" style= "padding: 10px;">
+<DIV class="boxes">
+<DIV class="box">
+<DIV class="head"> Your PLAs </DIV>
+<DIV class="flex-container" id="divTables">
+
 	<TABLE border="1" cellspacing="0" cellpadding="10">
 	<TR>
 	<TH>Name of PLA</TH>
@@ -68,6 +131,13 @@ else {
 }
 ?>
 </TABLE>
+	</DIV>
+	</DIV>
+	
+<DIV class="box">
+<DIV class="head"> Student Questions </DIV>
+<DIV class="flex-container" id="divTables">
+
 
 <?php
 $str2 = "SELECT * FROM student NATURAL JOIN class JOIN hasQuestion ON class.taid = hasQuestion.taid WHERE iid = $uid;";
@@ -81,6 +151,7 @@ else {
 	print_r($db->errorInfo());
 }
 ?>
+
 <TABLE border="1" cellspacing="0" cellpadding="10">
 	<TR>
 	<TH>Student</TH>
@@ -112,6 +183,7 @@ else {
 ?>
 </TABLE>
 </DIV>
+</DIV>
+</DIV>
 </BODY>
 </HTML>
-

@@ -28,7 +28,7 @@
     .head {
 	width: 100%;
 	margin:  0px;
-	color: white;
+	color: #ebebff;
 	background: #00008B;
 	text-align: center;
 	border: 1px solid #00008B;
@@ -48,7 +48,7 @@
 	width: 100%;
 	margin: 0px;
 	color: #00008B;
-	background: skyblue;
+	background: #ebebff;
 	text-align: center;
 	margin-bottom: 5px;
 

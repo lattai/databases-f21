@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,6 @@
 </head>
 <body>
 
-<h1 style="color:#ebebff";><center>Gettysburg College</center></h1>
 
 <style>
 body {
@@ -27,12 +27,11 @@ $uid = $_SESSION['user'];
 
 ?>
 
-
 <div class="header">
 	<h2>Register</h2>
 </div>
-<form method="post" action="dashboard.php?op=register">
-	<div class="input-group">
+<form class="registerForm" method="post" action="dashboard.php?op=register">
+	 <div class="input-group">
 		<label>First name</label>
 		<input type="text" name="fname" id="fname">
 	</div>

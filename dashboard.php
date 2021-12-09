@@ -20,5 +20,5 @@
 			header("Location: studentDash.php");
 		}
 	}
-	
+
 ?>

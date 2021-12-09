@@ -77,7 +77,7 @@ body {
 
         <div class="header">
             <div><h3> PLA Dashboard </h3></div>
-            <div class = "menu"> <h3><A href="LandingPage.php" style="color: goldenrod;"> Logout</a> </h3></div> 
+            <div class = "menu"> <h3><A href="index.php" style="color: goldenrod;"> Logout</a> </h3></div> 
         </div>
         
         <div class="content">

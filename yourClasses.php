@@ -80,7 +80,7 @@ body {
 
 <DIV class="header" id="divMain">
 	<Div><H3> Your Classes </H3></DIV>
-	<DIV class="menu"><H3><A href="profSetup.php" style="color: goldenrod;"> Setup</A> <A href="ProfessorDashboard.php" style="color: goldenrod;"> Dashboard </A><A href="LandingPage.php" style="color: goldenrod;"> Logout</A></H3></DIV>
+	<DIV class="menu"><H3><A href="profSetup.php" style="color: goldenrod;"> Setup</A> <A href="ProfessorDashboard.php" style="color: goldenrod;"> Dashboard </A><A href="index.php" style="color: goldenrod;"> Logout</A></H3></DIV>
 
 </DIV>
 <?php

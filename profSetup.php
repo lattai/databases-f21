@@ -74,7 +74,7 @@ body {
     ?>
     <div class="header">
         <div><h3> Professor Setup </h3></div>
-        <DIV class = "menu"><H3><A href="ProfessorDashboard.php" style="color: goldenrod;"> Dashboard <A href="yourClasses.php" style="color: goldenrod;">Your Classes </a> <A href="LandingPage.php" style="color: goldenrod;">Logout</a></H3></DIV>
+        <DIV class = "menu"><H3><A href="ProfessorDashboard.php" style="color: goldenrod;"> Dashboard <A href="yourClasses.php" style="color: goldenrod;">Your Classes </a> <A href="index.php" style="color: goldenrod;">Logout</a></H3></DIV>
     </div>
     
     <div class="content">

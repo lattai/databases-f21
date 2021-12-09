@@ -1,7 +1,7 @@
 <?php
 	include_once('db_connect.php');
 	session_start();
-	if($_GET['op']="register") {
+	if($_GET['op']=="register") {
 		$fname	= $_POST['fname'];
 		$lname	= $_POST['lname'];
 		$email  = $_POST['email'];

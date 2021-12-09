@@ -30,7 +30,7 @@
 	width: 100%;
 	margin: 0px;
 	color: #00008B;
-	background: skyblue;
+	background: #ebebff;
 	text-align: center;
 	margin-bottom: 5px;
 
@@ -101,9 +101,9 @@ body {
                 </div>
                 <DIV class="box">
                 <DIV class="head"> Add Roster </DIV>
-                <div class="blueRect">
+                <!--div class="blueRect"-->
                     <?php addRosterForm($user, $db); ?>
-                </div>
+                <!--/div-->
                 </div>
         </div>
     </div>

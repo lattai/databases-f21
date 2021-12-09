@@ -13,7 +13,7 @@ h1 {
 .header {
 	width: 40%;
 	margin: 50px auto 0px;
-	color: white;
+	color: #ebebff;
 	background: #00008B;
 	text-align: center;
 	border: 1px solid #B0C4DE;
@@ -26,7 +26,7 @@ form, .content {
 	margin: 0px auto;
 	padding: 20px;
 	border: 1px solid #B0C4DE;
-	background: white;
+	background: #ebebff;
 	border-radius: 0px 0px 10px 10px;
 }
 .input-group {
@@ -56,10 +56,19 @@ form, .content {
 	border: 1px solid gray;
 }
 
+body {
+    margin: 0px;
+    position: relative;
+    min-height: 100vh;
+    background-image: url('glatfelter3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .btn {
 	padding: 10px;
 	font-size: 15px;
-	color: white;
+	color: #ebebff;
 	background: #00008B;
 	border: none;
 	border-radius: 5px;

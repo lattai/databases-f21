@@ -127,7 +127,7 @@ else {
 			$course = $row['cid'];
 			$email = $row['email'];
 
-			$tRow = "<TR><TD>$lname, $fname</TD><TD>$course</TD><TD><a href=\"$email\" >$email<a></TD></TR>\n";
+			$tRow = "<TR><TD>$lname, $fname</TD><TD>$course</TD><TD>$email</TD></TR>\n";
 
 			print $tRow;
 

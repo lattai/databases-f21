@@ -19,6 +19,9 @@
 		if ($res2 != FALSE && $row['cid'] != NULL) {
 			header("Location: studentDash.php");
 		}
+		else{
+			header("Location: Login.php");
+		}
 	}
-
+	
 ?>

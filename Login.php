@@ -29,7 +29,7 @@ body {
 	<FORM class="registerForm" method="post" action= "dashboard.php">
 
 	<DIV class="input-group">
-		<label>Email</label>
+		<label>ID</label>
 		<input type='hidden' name = 'op' value='login'>
 		<input type="text" name="login" value="">
 	</DIV>

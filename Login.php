@@ -37,7 +37,7 @@ body {
 	<DIV class="input-group">
 		<label>Password</label>
 		<input type='hidden' name = 'pass' value=''>
-		<input type="text" name="password" value="">
+		<input type="password" name="password" value="">
 	</DIV>
 	
 	<DIV class="input-group">

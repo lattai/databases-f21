@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +8,11 @@
 </head>
 <body>
 
-<h1 style="color:white";><center>Gettysburg College</center></h1>
+<h1 style="color:#ebebff";><center>Gettysburg College</center></h1>
 
 <style>
 body {
-  background-image: url('glatfelter2.jpg');
+  background-image: url('glatfelter3.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -21,55 +22,37 @@ body {
 <?php
 include_once('db_connect.php');
 session_start();
-$fname	= $_POST['fname'];
-$lname	= $_POST['lname'];
-$email 	= $_POST['email'];
-$sid 	= $_POST['sid'];
-$cid 	= $_POST['cid'];
-$str = "INSERT INTO student VALUE(\"$fname\", \"$lname\", \"$email\", $sid, $cid);";
-$res = $db->query($str);
-  if($res == FALSE) {
-    print "<p>Error adding a new shift to the table </p>\n";
-    print_r($db->errorInfo());
-  }
+$_SESSION['user'] = $_POST['iid'];
+$uid = $_SESSION['user'];
 
 ?>
 
-<div class='nav-brand'> 
- <a href='home.php'> 
-   <img src='logo.png' alt='Official logo' width='100px' height='50px'> 
- </a> 
-</div> 
 
 <div class="header">
-	<h2>TA Register</h2>
+	<h2>Register</h2>
 </div>
-<form method="post">
+<form method="post" action="dashboard.php?op=register">
 	<div class="input-group">
 		<label>First name</label>
-		<input type="text" name="fname" value="">
+		<input type="text" name="fname" id="fname">
 	</div>
- <div class="input-group">
+	 <div class="input-group">
 		<label>Last name</label>
-		<input type="text" name="lname" value="">
+		<input type="text" name="lname" id="lname">
 	</div>
 	<div class="input-group">
 		<label>Email</label>
-		<input type="email" name="email" value="">
+		<input type="email" name="email" id="email">
 	</div>
-   <div class="input-group">
-		<label>Student ID</label>
-		<input type="text" name="sid" value="">
-	</div>
-   <div class="input-group">
-		<label>Class ID</label>
-		<input type="text" name="cid" value="">
+   	<div class="input-group">
+		<label>Instructor ID</label>
+		<input type="text" name="iid" id="iid">
 	</div>
 	<div class="input-group">
 		<button type="submit" class="btn" name="register_btn">Register</button>
 	</div>
 	<p>
-		Already have an account? <a href="login.php">Log In</a>
+		Already have an account? <a href="Login.php">Log In</a>
 	</p>
 </form>
 </body>

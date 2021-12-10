@@ -145,7 +145,8 @@ else {
 
 
 <?php
-$str2 = "SELECT * FROM student NATURAL JOIN class JOIN hasQuestion ON class.taid = hasQuestion.taid WHERE iid = $uid;";
+//$str2 = "SELECT * FROM hasQuestion NATURAL JOIN enrollsIn NATURAL JOIN instructor JOIN student ON student.sid = enrollsIn.sid JOIN class ON class.cid = enrollsIn.cid WHERE instructor.iid = $uid;";
+$str2="SELECT * FROM hasQuestion NATURAL JOIN enrollsIn JOIN student ON student.sid = enrollsIn.sid JOIN class ON class.cid = enrollsIn.cid WHERE class.iid = $uid;";
 $res2 = $db->query($str2);
 
 if ($res2 != FALSE) {
@@ -159,12 +160,11 @@ else {
 
 <TABLE border="1" cellspacing="0" cellpadding="10">
 	<TR>
+	<TH>Class</TH>
 	<TH>Student</TH>
-	<TH>Section</TH>
 	<TH>Question Topic</TH>
 	<TH>Question</TH>
 	</TR>
-
 	<?php
 
 	if ($nRows2 > 0) {
@@ -176,9 +176,9 @@ else {
 			$section = $row['section'];
 			$topic = $row['topic'];
 			$question =$row['question'];
-		
+			$cname = $row['cname'];
 	
-			$tRow = "<TR><TD>$fname $lname</TD><TD>$section</TD><TD>$topic</TD><TD>$question</TD></TR>\n";
+			$tRow = "<TR><TD>$cname $section</TD><TD>$fname $lname</TD><TD>$topic</TD><TD>$question</TD></TR>\n";
 	
 			print $tRow;
 
@@ -192,4 +192,3 @@ else {
 </DIV>
 </BODY>
 </HTML>
-
